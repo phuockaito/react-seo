@@ -29,8 +29,6 @@ export default function Home(props: Route.ComponentProps) {
                         to={`/${item.slug_name_music}`}
                         className="flex flex-col items-center justify-center"
                     >
-
-
                         {item.name_music}
                         <img src={item.image_music} width={100} height={100} alt={item.name_music} />
                     </Link>

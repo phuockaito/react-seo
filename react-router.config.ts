@@ -5,6 +5,9 @@ export default {
     // Server-side render by default, to enable SPA mode set this to `false`
     ssr: true,
     async prerender() {
-        return ["/", "/music"];
+        const response = await fetch("https://v2-api-kaito-music.vercel.app/api/music/top-views?_limit=50&_type=million");
+        const { data } = await response.json();
+        const paths = data.map((item: any) => `/${item.slug_name_music}`);
+        return ["/", ...paths];
     },
 } satisfies Config;
